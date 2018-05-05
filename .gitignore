@@ -21,4 +21,4 @@ yarn-debug.log*
 yarn-error.log*
 
 #FIREBASE KEYS
-firebase.js
+/src/firebase/firebase.js
