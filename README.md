@@ -23,12 +23,12 @@ A dispatching app made by [Vincent Moeykens](https://github.com/vincemoe).
     import * as firebase from 'firebase';
     
     const config = {
-       apiKey: "AIzaSyCk3Chnafd-D3CjgzhR1zVa9mAAid5ZoT8",
-       authDomain: "asset-dispatch.firebaseapp.com",
-       databaseURL: "https://asset-dispatch.firebaseio.com",
-       projectId: "asset-dispatch",
-       storageBucket: "asset-dispatch.appspot.com",
-       messagingSenderId: "1098131309656",
+       apiKey: "YOUR_API_KEY",
+       authDomain: "YOUR_AUTH_DOMAIN",
+       databaseURL: "YOUR_DATABSE_URL",
+       projectId: "YOUR_PROJECT_ID",
+       storageBucket: "YOUR_STORAGE_BUCKET",
+       messagingSenderId: "YOUR_MESSAGIN_SENDER_ID",
     };
     
     if (!firebase.apps.length) {
