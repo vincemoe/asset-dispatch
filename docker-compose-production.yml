@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  asset-dispatch-prod:
+    container_name: asset-dispatch-prod
+    build:
+      context: .
+      dockerfile: Dockerfile-production
+    ports:
+      - '80:80'
