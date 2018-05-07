@@ -113,7 +113,7 @@ class SignUpForm extends Component {
     }
 }
 
-export default withRouter(SignUpPage);;
+export default withRouter(SignUpPage);
 
 export {
     SignUpForm,
