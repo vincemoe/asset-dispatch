@@ -4,10 +4,7 @@ import {withRouter, Route} from 'react-router-dom';
 import {SignUpLink} from './SignUp';
 import {auth} from '../firebase';
 import * as routes from '../constants/routes';
-import Dialog from 'material-ui/Dialog';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import { Link } from 'react-router-dom';
 
 
@@ -77,7 +74,7 @@ class SignInForm extends Component {
 
         const actions = [
             <Link to={routes.LANDING}>
-            <FlatButton
+            <button
                 label="Cancel"
                 primary={true}
                 onClick={this.handleClose}
@@ -86,13 +83,7 @@ class SignInForm extends Component {
         ];
 
         return (
-            <MuiThemeProvider>
-                <Dialog
-                    title="Sign In"
-                    actions={actions}
-                    modal={true}
-                    open={this.state.open}
-                >
+
                     <form onSubmit={this.onSubmit}>
                         <input
                             value={email}
@@ -106,7 +97,7 @@ class SignInForm extends Component {
                             type="password"
                             placeholder="Password"
                         />
-                        <FlatButton
+                        <button
                             label="Submit"
                             primary={true}
                             type="submit"
@@ -116,9 +107,6 @@ class SignInForm extends Component {
 
                         {error && <p>{error.message}</p>}
                     </form>
-                </Dialog>
-            </MuiThemeProvider>
-
         );
     }
 }
