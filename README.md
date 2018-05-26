@@ -9,6 +9,8 @@ A dispatching app made by [Vincent Moeykens](https://github.com/vincemoe).
 - React Router
 - Firebase
 - Google Cloud Platform
+- reactstrap (React Boostrap Wrapper)
+- react-map-gl (*Uber* Mapbox.js Wrapper)
 
 
 #### Docker

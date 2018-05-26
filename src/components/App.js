@@ -3,7 +3,23 @@ import {
     BrowserRouter as Router, Route,
 } from 'react-router-dom';
 import './App.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import withAuthentication from './withAuthentication';
+import AuthUserContext from './AuthUserContext';
+
+import {
+    Button, Form, FormGroup, Label, Input, Card, CardBody, Container, Row, Col, CardTitle, Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    Collapse,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem
+} from 'reactstrap';
 
 import Navigation from './Navigation';
 import LandingPage from './Landing';
@@ -35,7 +51,9 @@ const Logged = (props) => (
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
-        <Link to={routes.ACCOUNT}><menuitem primaryText="Account"/></Link>
+        <Link to={routes.ACCOUNT}>
+            <menuitem primaryText="Account"/>
+        </Link>
         <menuitem primaryText="Help"/>
         <SignOutButton/>
     </menu>
@@ -50,9 +68,21 @@ class App extends Component {
 
         this.state = {
             authUser: null,
-            open: false
+            open: false,
+            isOpen: false,
+
         };
+        this.toggleOpen = this.toggleOpen.bind(this);
+
     };
+
+    toggleOpen = (() => {
+        if (this.state.isOpen) {
+            this.setState({isOpen: false});
+        } else {
+            this.setState({isOpen: true});
+        }
+    });
 
     componentDidMount() {
         firebase.auth.onAuthStateChanged(authUser => {
@@ -66,12 +96,45 @@ class App extends Component {
         return (
             <Router>
                 <div>
-
-                   <div>
+                    <Navbar color="dark" dark expand="md">
+                        <NavbarBrand href="#">Asset Dispatch</NavbarBrand>
+                        <NavbarToggler onClick={this.toggleOpen}/>
+                        <Collapse isOpen={this.state.isOpen} navbar>
+                            <Nav className="ml-auto" navbar>
+                                {this.state.authUser ?
+                                    <NavItem>
+                                        <Link style={{textDecoration: 'none',}} to={routes.HOME}><NavLink>Home</NavLink></Link>
+                                    </NavItem> : null}
+                                <NavItem>
+                                    <NavLink href="#">About</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="https://github.com/vincemoe/asset-dispatch">Source</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    {this.state.authUser ?
+                                        <UncontrolledDropdown nav inNavbar>
+                                            <DropdownToggle nav caret>
+                                                {this.state.authUser.email}
+                                            </DropdownToggle>
+                                            <DropdownMenu right>
+                                                <DropdownItem>
+                                                    <Link style={{textDecoration: 'none',}} to={routes.ACCOUNT}>Account</Link>
+                                                </DropdownItem>
+                                                <DropdownItem divider/>
+                                                <DropdownItem>
+                                                    <SignOutButton/>
+                                                </DropdownItem>
+                                            </DropdownMenu>
+                                        </UncontrolledDropdown> : null}
+                                </NavItem>
+                            </Nav>
+                        </Collapse>
+                    </Navbar>
+                    <div>
                         <Route
                             exact path={routes.LANDING}
-                            component={() => <div style={{position: 'absolute', top: '0', bottom: '0', left: '0', right: '0', marginTop: '-25p', height: '100vh'}}>
-                                <LandingPage/></div>}
+                            component={() => <LandingPage/>}
                         />
                         <Route
                             exact path={routes.SIGN_UP}
@@ -97,9 +160,9 @@ class App extends Component {
                     </div>
 
                 </div>
-                </Router>
+            </Router>
         );
     }
 }
 
-export default App;
+export default withAuthentication(App);

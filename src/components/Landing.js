@@ -45,20 +45,6 @@ class LandingPage extends Component {
     render() {
         return (
             <div>
-                <Navbar color="dark" dark expand="md">
-                    <NavbarBrand href="/">Asset Dispatch</NavbarBrand>
-                    <NavbarToggler onClick={this.toggleOpen}/>
-                    <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink href="#">About</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="https://github.com/vincemoe/asset-dispatch">Source</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                </Navbar>
                 <br/>
                 <Container>
                     <Row>
