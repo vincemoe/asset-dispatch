@@ -8,7 +8,7 @@ import {
     Button, Form, FormGroup, Label, Input,
 } from 'reactstrap';
 
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 const SignInPage = (({history}) =>
@@ -77,11 +77,12 @@ class SignInForm extends Component {
 
         const actions = [
             <Link to={routes.LANDING}>
-            <button
-                label="Cancel"
-                primary={true}
-                onClick={this.handleClose}
-            /></Link>,
+                <button
+                    label="Cancel"
+                    primary={true}
+                    onClick={this.handleClose}
+                />
+            </Link>,
 
         ];
 
@@ -92,7 +93,7 @@ class SignInForm extends Component {
                         <Label for="Email">Email</Label>
                         <Input value={email} type="email"
                                placeholder="example@website.com"
-                                onChange={event => this.setState(byPropKey('email', event.target.value))}/>
+                               onChange={event => this.setState(byPropKey('email', event.target.value))}/>
                     </FormGroup>
                     <FormGroup>
                         <Label for="Password">Password</Label>
@@ -104,6 +105,7 @@ class SignInForm extends Component {
                             disabled={isInvalid}
                             color="primary"
                     >Submit</Button>{' '}
+
                     {error && <p>{error.message}</p>}
                 </Form>
             </div>
