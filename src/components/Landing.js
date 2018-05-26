@@ -1,28 +1,83 @@
 import React from 'react';
 import {Component} from 'react';
-import ReactMapGL from 'react-map-gl';
+import SignInPage from './SignIn';
+import {
+    Button, Form, FormGroup, Label, Input, Card, CardBody, Container, Row, Col, CardTitle, Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    Collapse,
+} from 'reactstrap';
+
+import * as routes from "../constants/routes";
+
+import {Link} from 'react-router-dom';
+
+import {SignUpForm} from "./SignUp";
 
 class LandingPage extends Component {
 
-    state = {
-        viewport: {
-            width: 400,
-            height: 400,
-            latitude: 37.7577,
-            longitude: -122.4376,
-            zoom: 8
+    constructor(props) {
+        super(props);
+        this.state = {
+            isOpen: false,
+            signUp: false,
+        };
+
+        this.toggleOpen = this.toggleOpen.bind(this);
+        this.toggleSignUp = this.toggleSignUp.bind(this);
+
+    }
+
+    toggleOpen = (() => {
+        if (this.state.isOpen) {
+            this.setState({isOpen: false});
+        } else {
+            this.setState({isOpen: true});
         }
-    };
+    });
+
+    toggleSignUp = (() => this.setState({signUp: true}));
+
 
     render() {
         return (
-            <ReactMapGL
-                {...this.state.viewport}
-                onViewportChange={(viewport) => this.setState({viewport})}
-                mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
-            />
+            <div>
+                <Navbar color="dark" dark expand="md">
+                    <NavbarBrand href="/">Asset Dispatch</NavbarBrand>
+                    <NavbarToggler onClick={this.toggleOpen}/>
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <Nav className="ml-auto" navbar>
+                            <NavItem>
+                                <NavLink href="#">About</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink href="https://github.com/vincemoe/asset-dispatch">Source</NavLink>
+                            </NavItem>
+                        </Nav>
+                    </Collapse>
+                </Navbar>
+                <br/>
+                <Container>
+                    <Row>
+                        <Col>
+                            <Card>
+                                <CardBody>
+                                    <CardTitle>{this.state.signUp ? 'Sign Up' : 'Login' }</CardTitle>
+                                    {this.state.signUp ?
+                                        <SignUpForm/> : <div> <SignInPage/> <div style={{paddingTop: '10px'}}><Button color="secondary" onClick={this.toggleSignUp}>Create an Account</Button>{' '}</div></div>}
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
         );
     }
 }
 
+
 export default LandingPage;
+

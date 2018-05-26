@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import {withRouter, Route} from 'react-router-dom';
 
-import {SignUpLink} from './SignUp';
 import {auth} from '../firebase';
 import * as routes from '../constants/routes';
+
+import {
+    Button, Form, FormGroup, Label, Input,
+} from 'reactstrap';
 
 import { Link } from 'react-router-dom';
 
@@ -83,30 +86,29 @@ class SignInForm extends Component {
         ];
 
         return (
-
-                    <form onSubmit={this.onSubmit}>
-                        <input
-                            value={email}
-                            onChange={event => this.setState(byPropKey('email', event.target.value))}
-                            type="text"
-                            placeholder="Email Address"
-                        />
-                        <input
-                            value={password}
-                            onChange={event => this.setState(byPropKey('password', event.target.value))}
-                            type="password"
-                            placeholder="Password"
-                        />
-                        <button
-                            label="Submit"
-                            primary={true}
-                            type="submit"
+            <div>
+                <Form onSubmit={this.onSubmit}>
+                    <FormGroup>
+                        <Label for="Email">Email</Label>
+                        <Input value={email} type="email"
+                               placeholder="example@website.com"
+                                onChange={event => this.setState(byPropKey('email', event.target.value))}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="Password">Password</Label>
+                        <Input value={password} type="password"
+                               placeholder="Password"
+                               onChange={event => this.setState(byPropKey('password', event.target.value))}/>
+                    </FormGroup>
+                    <Button type="submit"
                             disabled={isInvalid}
-                        />
-                        <SignUpLink/>
+                            color="primary"
+                    >Submit</Button>{' '}
+                    {error && <p>{error.message}</p>}
+                </Form>
+            </div>
 
-                        {error && <p>{error.message}</p>}
-                    </form>
+
         );
     }
 }

@@ -3,6 +3,10 @@ import {
     Link, withRouter,
 } from 'react-router-dom';
 
+import {
+    Button, Form, FormGroup, Label, Input,
+} from 'reactstrap';
+
 import {auth} from '../firebase';
 import * as routes from '../constants/routes';
 
