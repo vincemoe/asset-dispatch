@@ -23,3 +23,5 @@ yarn-error.log*
 #FIREBASE KEYS
 /src/firebase/firebase.js
 ./src/firebase/firebase.js
+
+.env
