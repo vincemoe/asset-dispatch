@@ -1,4 +1,5 @@
-# Asset Dispatch
+![logo](logo.png)
+
 A dispatching app made by [Vincent Moeykens](https://github.com/vincemoe).
 ## Todo: Add More stuff up here
 
