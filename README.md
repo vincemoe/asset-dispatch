@@ -19,7 +19,7 @@ A dispatching app made by [Vincent Moeykens](https://github.com/vincemoe).
 
 ## How to run
 1. `git clone https://github.com/vincemoe/asset-dispatch.git`
-2. `cd asset-dispatch/src/firebase`
+2. `cd asset-dispatch`
 3. `touch .env`
 4. Copy the following into `.env`:
     ```
@@ -32,6 +32,5 @@ A dispatching app made by [Vincent Moeykens](https://github.com/vincemoe).
     REACT_APP_messagingSenderId="MY FIREBASE MESSAGING SENDER"
     ```
 5. *Obviously you must replace the values in quotes with your correct api creds*
-6. Navigate back to the `asset-distpatch` directory root
-7. Run `docker-compose up -d --build`
-8. Visit `localhost:3000` in your browser
+6. Run `docker-compose up -d --build`
+7. Visit `localhost:3000` in your browser
