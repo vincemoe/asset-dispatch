@@ -22,4 +22,4 @@ yarn-error.log*
 
 .env
 
-app.yaml
+app.yaml*
