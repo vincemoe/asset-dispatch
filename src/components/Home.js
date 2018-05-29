@@ -20,7 +20,6 @@ class Home extends Component {
     componentDidMount() {
         window.addEventListener('resize', this._resize);
         this._resize();
-
     };
 
     _resize = () => {

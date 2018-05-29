@@ -5,10 +5,9 @@ import {
 import './App.css';
 import {Link} from 'react-router-dom';
 import withAuthentication from './withAuthentication';
-import AuthUserContext from './AuthUserContext';
 
 import {
-    Button, Form, FormGroup, Label, Input, Card, CardBody, Container, Row, Col, CardTitle, Navbar,
+    Navbar,
     NavbarToggler,
     NavbarBrand,
     Nav,
@@ -21,7 +20,6 @@ import {
     DropdownItem
 } from 'reactstrap';
 
-import Navigation from './Navigation';
 import LandingPage from './Landing';
 import SignUpPage from './SignUp';
 import SignInPage from './SignIn';
@@ -30,36 +28,10 @@ import HomePage from './Home';
 import AccountPage from './Account';
 
 import * as routes from '../constants/routes';
-import {auth, firebase} from '../firebase';
-
+import {db, firebase} from '../firebase';
 
 import SignOutButton from './SignOut';
 
-class Login extends Component {
-
-    render() {
-        return (
-            <button {...this.props} containerElement={<Link to={routes.SIGN_IN}/>} label="Login"/>
-        );
-    }
-}
-
-const Logged = (props) => (
-    <menu
-        {...props}
-
-        targetOrigin={{horizontal: 'right', vertical: 'top'}}
-        anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-    >
-        <Link to={routes.ACCOUNT}>
-            <menuitem primaryText="Account"/>
-        </Link>
-        <menuitem primaryText="Help"/>
-        <SignOutButton/>
-    </menu>
-);
-
-Logged.muiName = 'IconMenu';
 
 class App extends Component {
 
@@ -70,9 +42,11 @@ class App extends Component {
             authUser: null,
             open: false,
             isOpen: false,
+            users: null,
 
         };
         this.toggleOpen = this.toggleOpen.bind(this);
+
 
     };
 
@@ -90,9 +64,18 @@ class App extends Component {
                 ? this.setState(() => ({authUser}))
                 : this.setState(() => ({authUser: null}));
         });
+        db.onceGetUsers().then(snapshot =>
+            this.setState(() => ({ users: snapshot.val() }))
+        );
     };
 
     render() {
+        const { users } = this.state;
+        console.log("Users");
+        if(users){
+            console.log(Object.keys(users));
+        }
+
         return (
             <Router>
                 <div>
@@ -115,7 +98,7 @@ class App extends Component {
                                     {this.state.authUser ?
                                         <UncontrolledDropdown nav inNavbar>
                                             <DropdownToggle nav caret>
-                                                {this.state.authUser.email}
+                                                { !!users && <CurrentUser users={users} currentUser={this.state.authUser}/> }
                                             </DropdownToggle>
                                             <DropdownMenu right>
                                                 <DropdownItem>
@@ -164,5 +147,10 @@ class App extends Component {
         );
     }
 }
+
+const CurrentUser = (({ users, currentUser }) =>
+        <span>{Object.keys(users).map(key =>
+            <span key={key}>{key === currentUser.uid ? users[key].username: null}</span>
+        )}</span>);
 
 export default withAuthentication(App);
