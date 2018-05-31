@@ -3,6 +3,7 @@ import icons from 'glyphicons'
 
 import {Card, CardBody, CardSubtitle, CardText, CardTitle, Button, Container, Row, Col} from 'reactstrap';
 
+import NewAssetCard from './NewAssetCard';
 
 class Sidebar extends Component {
     render() {
@@ -29,11 +30,12 @@ class Sidebar extends Component {
                                 <Col>
                                     <Card>
                                         <CardBody>
-                                            <CardTitle>Test</CardTitle>
+                                            <CardTitle>Test 2</CardTitle>
                                             <CardSubtitle>Account Information</CardSubtitle>
                                             <CardText>Account info or something here.</CardText>
                                         </CardBody>
                                     </Card>
+                                    <NewAssetCard/>
                                 </Col>
                             </Row>
                         </Container>
@@ -43,5 +45,6 @@ class Sidebar extends Component {
         );
     }
 }
+
 
 export default Sidebar;
