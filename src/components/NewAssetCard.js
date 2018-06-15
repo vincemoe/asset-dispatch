@@ -246,7 +246,7 @@ class NewAssetCard extends Component {
         return (
             <Card>
                 <CardBody>
-                    <CardTitle>{this.state.editingAsset.name === '' ? 'New Asset' : thiSs.state.editingAsset.name}</CardTitle>
+                    <CardTitle>{this.state.editingAsset.name === '' ? 'New Asset' : this.state.editingAsset.name}</CardTitle>
                     <Form>
                         <FormGroup>
                             <Label for="assetName">Name</Label>
