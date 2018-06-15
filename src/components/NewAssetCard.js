@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import icons from 'glyphicons'
 
-import {Card, CardBody, Form, FormGroup, CardTitle, Label, Input, Row, Col} from 'reactstrap';
+import {Card, CardBody, Form, FormGroup, CardTitle, Label, Input, Button, Col} from 'reactstrap';
 
 class NewAssetCard extends Component {
 
@@ -9,7 +9,7 @@ class NewAssetCard extends Component {
         super(props);
         this.state = {
             editingAsset: {
-                name: null,
+                name: '',
                 type: null,
                 description: null,
                 lat: null,
@@ -103,11 +103,11 @@ class NewAssetCard extends Component {
         return (
             <Card>
                 <CardBody>
-                    <CardTitle>{this.state.name === null ? 'New Asset' : this.state.name}</CardTitle>
+                    <CardTitle>{this.state.editingAsset.name === '' ? 'New Asset' : this.state.editingAsset.name}</CardTitle>
                     <Form>
                         <FormGroup>
                             <Label for="assetName">Name</Label>
-                            <Input type="text" name="name" id="assetName" placeholder="Staff Barracks"/>
+                            <Input onChange={(e) => this.setState({editingAsset:{name: e.target.value}})} type="text" name="name" id="assetName" placeholder="Staff Barracks"/>
                         </FormGroup>
                         <FormGroup>
                             <Label for="type">Select Type</Label>
@@ -124,6 +124,7 @@ class NewAssetCard extends Component {
                                 {this.state.assets.map(p => <option key={p.id}>{p.name}</option>)}
                             </Input>
                         </FormGroup>
+                        <Button color="success">Submit</Button>
                     </Form>
                 </CardBody>
             </Card>

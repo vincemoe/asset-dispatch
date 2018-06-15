@@ -6,6 +6,18 @@ import {Card, CardBody, CardSubtitle, CardText, CardTitle, Button, Row, Col} fro
 import NewAssetCard from './NewAssetCard';
 
 class Sidebar extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            adding: false,
+        };
+    };
+
+    toggleAdding(){
+        this.setState({adding: !this.state.adding});
+    };
+
     render() {
         return (
                 <div style={{
@@ -25,7 +37,12 @@ class Sidebar extends Component {
                         <CardBody>
                             <Row style={{paddingBottom: '10px'}}>
                                 <Col>
-                                    <Button color="primary" size="lg">New Asset {icons.plus}</Button>{' '}
+                                    {this.state.adding
+                                        ? <div><Button color="danger" size="lg" onClick={this.toggleAdding.bind(this)}>Cancel {icons.remove}</Button>{' '}</div>
+                                        : <div><Button color="primary" size="lg" onClick={this.toggleAdding.bind(this)}>New
+                                            Asset {icons.plus}</Button>{' '}</div>
+                                    }
+
                                 </Col>
                             </Row>
                             <Row style={{paddingBottom: '10px'}}>
@@ -39,11 +56,13 @@ class Sidebar extends Component {
                                     </Card>
                                 </Col>
                             </Row>
-                            <Row style={{paddingBottom: '10px'}}>
-                                <Col>
-                                    <NewAssetCard/>
-                                </Col>
-                            </Row>
+                            {this.state.adding ?
+                                <Row style={{paddingBottom: '10px'}}>
+                                    <Col>
+                                        <NewAssetCard/>
+                                    </Col>
+                                </Row>
+                            : null}
                         </CardBody>
                     </Card>
                 </div>
