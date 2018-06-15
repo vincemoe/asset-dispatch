@@ -1,32 +1,34 @@
 import React, {Component} from 'react';
 import icons from 'glyphicons'
 
-import {Card, CardBody, CardSubtitle, CardText, CardTitle, Button, Container, Row, Col} from 'reactstrap';
+import {Card, CardBody, CardSubtitle, CardText, CardTitle, Button, Row, Col} from 'reactstrap';
 
 import NewAssetCard from './NewAssetCard';
 
 class Sidebar extends Component {
     render() {
         return (
-            <div style={{position: 'absolute',
-                top: '0',
-                right: '0',
-                maxWidth: '400px',
-                background: '#fff',
-                paddingLeft: '12px 24px',
-                margin: '20px',
-                fontSize: '13px',
-                lineHeight: '2',
-                color: '#6b6b76',}}>
-                <Card>
-                    <CardBody>
-                        <Container>
-                            <Row>
-                                <Col style={{paddingBottom: '10px'}}>
+                <div style={{
+                    position: 'absolute',
+                    top: '0',
+                    right: '0',
+                    maxWidth: '400px',
+                    background: '#fff',
+                    paddingLeft: '12px 24px',
+                    marginRight: '20px',
+                    marginTop: '80px',
+                    fontSize: '13px',
+                    lineHeight: '2',
+                    color: '#6b6b76',
+                }}>
+                    <Card>
+                        <CardBody>
+                            <Row style={{paddingBottom: '10px'}}>
+                                <Col>
                                     <Button color="primary" size="lg">New Asset {icons.plus}</Button>{' '}
                                 </Col>
                             </Row>
-                            <Row>
+                            <Row style={{paddingBottom: '10px'}}>
                                 <Col>
                                     <Card>
                                         <CardBody>
@@ -35,13 +37,16 @@ class Sidebar extends Component {
                                             <CardText>Account info or something here.</CardText>
                                         </CardBody>
                                     </Card>
+                                </Col>
+                            </Row>
+                            <Row style={{paddingBottom: '10px'}}>
+                                <Col>
                                     <NewAssetCard/>
                                 </Col>
                             </Row>
-                        </Container>
-                    </CardBody>
-                </Card>
-            </div>
+                        </CardBody>
+                    </Card>
+                </div>
         );
     }
 }

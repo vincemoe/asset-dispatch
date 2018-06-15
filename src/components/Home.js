@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ReactMapGL from 'react-map-gl';
+import MapGL, {HTMLOverlay} from 'react-map-gl';
 import withAuthorization from './withAuthorization';
 import Sidebar from './Sidebar.js';
 
@@ -25,12 +25,16 @@ class Home extends Component {
         this._resize();
     };
 
+    componentWillUnmount() {
+        window.removeEventListener('resize', this._resize);
+    };
+
     _resize = () => {
         this.setState({
             viewport: {
                 ...this.state.viewport,
                 width: this.props.width || window.innerWidth,
-                height: this.props.height || window.innerHeight
+                height: this.props.height || window.innerHeight - 50
             }
         });
     };
@@ -40,18 +44,21 @@ class Home extends Component {
     }
 
     render() {
+
+        const {viewport, settings} = this.state;
+
         return (
             <div>
-                <ReactMapGL
-                    {...this.state.viewport}
+                <MapGL
+
+                    {...viewport}
+                    {...settings}
                     onViewportChange={(viewport) => this.setState({viewport})}
                     mapStyle={this.state.mapStyle}
                     mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
                     onClick={this._onClickMap}
-                >
-                    <Sidebar/>
-                </ReactMapGL>
-
+                />
+                <Sidebar/>
             </div>
         );
     }
