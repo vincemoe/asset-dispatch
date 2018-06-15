@@ -18,222 +18,222 @@ class NewAssetCard extends Component {
             },
             assets: [
                 {
-                    "id": "5b233e9aa2692099040a8003",
-                    "name": "Austex",
-                    "type": "Mollit sit irure ad nulla est exercitation occaecat dolore ad. Quis exercitation consectetur consequat enim ea fugiat eiusmod in esse.",
-                    "description": true,
-                    "lat": -4.327889,
-                    "lng": 27.679983,
+                    "id": "5b2341ab357adf4519c89375",
+                    "name": "Besto",
+                    "description": "Enim id eu aute proident exercitation Lorem enim sit mollit commodo ullamco. Laboris exercitation magna deserunt consectetur consequat labore labore magna amet.",
+                    "lat": 70.393308,
+                    "lng": -19.18927,
+                    "type": "Stationary Geometry Asset",
                     "points": [
                         {
-                            "lat": 46.936044,
-                            "lng": -137.023157
+                            "lat": -5.8987,
+                            "lng": 38.844447
                         },
                         {
-                            "lat": 18.019943,
-                            "lng": 55.362225
+                            "lat": 13.468778,
+                            "lng": 168.563319
                         },
                         {
-                            "lat": 60.221553,
-                            "lng": -113.346502
+                            "lat": -82.71977,
+                            "lng": -6.63756
                         }
                     ]
                 },
                 {
-                    "id": "5b233e9a4f462419ed1abba3",
-                    "name": "Synkgen",
-                    "type": "Tempor consectetur enim proident sunt ex incididunt sit ipsum. Veniam ipsum eiusmod fugiat do ullamco irure ipsum aliquip aliquip proident et deserunt fugiat reprehenderit.",
-                    "description": false,
-                    "lat": 85.499248,
-                    "lng": -9.831205,
+                    "id": "5b2341ab7b0c858964b5d4fa",
+                    "name": "Fiberox",
+                    "description": "In cillum commodo ipsum nisi proident reprehenderit dolor sit non ea. Velit quis non incididunt tempor nostrud mollit cupidatat.",
+                    "lat": -44.729383,
+                    "lng": 140.188223,
+                    "type": "Moving Asset",
                     "points": [
                         {
-                            "lat": -56.290595,
-                            "lng": 157.526615
+                            "lat": 72.134238,
+                            "lng": -67.147672
                         },
                         {
-                            "lat": 73.838315,
-                            "lng": -92.848854
+                            "lat": -12.984918,
+                            "lng": -72.368396
                         },
                         {
-                            "lat": 23.670306,
-                            "lng": -143.05212
+                            "lat": -46.86525,
+                            "lng": -151.249559
                         }
                     ]
                 },
                 {
-                    "id": "5b233e9ae272a2dd005104a6",
-                    "name": "Talae",
-                    "type": "Est dolor amet enim proident minim sunt ullamco. Laborum enim ea sint quis.",
-                    "description": true,
-                    "lat": 16.973429,
-                    "lng": -19.524696,
+                    "id": "5b2341ab08198f876408f683",
+                    "name": "Egypto",
+                    "description": "Exercitation cupidatat excepteur irure proident velit deserunt pariatur. Duis velit consequat sint et elit ipsum deserunt sint commodo nulla nostrud incididunt.",
+                    "lat": 37.605626,
+                    "lng": 79.926034,
+                    "type": "Stationary Geometry Asset",
                     "points": [
                         {
-                            "lat": -2.13113,
-                            "lng": -165.567313
+                            "lat": -38.844511,
+                            "lng": -168.920187
                         },
                         {
-                            "lat": -72.43283,
-                            "lng": 80.721023
+                            "lat": -60.994193,
+                            "lng": 164.190194
                         },
                         {
-                            "lat": 35.92486,
-                            "lng": -127.00346
+                            "lat": -41.51816,
+                            "lng": 36.875062
                         }
                     ]
                 },
                 {
-                    "id": "5b233e9afa589d1792e69684",
-                    "name": "Prismatic",
-                    "type": "Id mollit ea nulla incididunt exercitation et in commodo exercitation quis ullamco. Nostrud et ipsum deserunt do irure esse dolore laboris minim.",
-                    "description": true,
-                    "lat": -1.30401,
-                    "lng": 29.234794,
+                    "id": "5b2341abc14800c15aa90898",
+                    "name": "Mazuda",
+                    "description": "Est eiusmod minim qui duis aliquip ad nisi anim est enim eiusmod nisi incididunt. Ipsum exercitation ea ea fugiat aliqua duis eu in aliqua irure Lorem do.",
+                    "lat": 77.145464,
+                    "lng": -174.509334,
+                    "type": "Stationary Geometry Asset",
                     "points": [
                         {
-                            "lat": -34.156865,
-                            "lng": -177.218557
+                            "lat": 75.728018,
+                            "lng": -178.98555
                         },
                         {
-                            "lat": -17.633691,
-                            "lng": 3.296116
+                            "lat": -31.611749,
+                            "lng": -85.050556
                         },
                         {
-                            "lat": -51.083157,
-                            "lng": 59.945191
+                            "lat": 2.564705,
+                            "lng": -103.135267
                         }
                     ]
                 },
                 {
-                    "id": "5b233e9a94025895e759f339",
-                    "name": "Kegular",
-                    "type": "Ipsum laborum velit eiusmod culpa est aliquip elit id id qui ut eiusmod. Culpa minim laboris enim minim nostrud incididunt non nisi.",
-                    "description": false,
-                    "lat": -32.912403,
-                    "lng": 174.454897,
+                    "id": "5b2341ab108dc1401b65b50b",
+                    "name": "Vetron",
+                    "description": "Eu quis laborum mollit consequat proident proident deserunt commodo non enim officia laboris minim nulla. Esse enim aute cupidatat dolore nisi veniam ad reprehenderit incididunt dolor non elit.",
+                    "lat": 63.456157,
+                    "lng": -26.894861,
+                    "type": "Moving Asset",
                     "points": [
                         {
-                            "lat": 50.150638,
-                            "lng": -130.253769
+                            "lat": -62.997509,
+                            "lng": -19.185468
                         },
                         {
-                            "lat": -60.054473,
-                            "lng": 142.223163
+                            "lat": -54.062352,
+                            "lng": -113.837655
                         },
                         {
-                            "lat": -28.311358,
-                            "lng": 153.262565
+                            "lat": 7.218115,
+                            "lng": -176.829314
                         }
                     ]
                 },
                 {
-                    "id": "5b233e9a8baa23fbb0c4477d",
-                    "name": "Ginkle",
-                    "type": "Aute magna nulla laboris dolor sit quis voluptate ad pariatur Lorem excepteur laborum. Lorem proident in sint et ea mollit reprehenderit nisi et pariatur cillum eu.",
-                    "description": false,
-                    "lat": -85.321118,
-                    "lng": -102.687295,
+                    "id": "5b2341ab9e83e2fbeca2d086",
+                    "name": "Progenex",
+                    "description": "Veniam enim occaecat occaecat amet labore do cupidatat aliqua eiusmod do cupidatat Lorem aliquip pariatur. Exercitation officia consectetur ad Lorem elit sunt aliquip qui mollit officia.",
+                    "lat": -80.687222,
+                    "lng": 114.319888,
+                    "type": "Moving Asset",
                     "points": [
                         {
-                            "lat": 47.408764,
-                            "lng": 66.522488
+                            "lat": 54.091375,
+                            "lng": -42.930479
                         },
                         {
-                            "lat": -34.803951,
-                            "lng": 4.481139
+                            "lat": 14.346514,
+                            "lng": -174.791234
                         },
                         {
-                            "lat": -28.863126,
-                            "lng": -156.413096
+                            "lat": -84.525239,
+                            "lng": 165.078038
                         }
                     ]
                 },
                 {
-                    "id": "5b233e9a069053049c7cf8c8",
-                    "name": "Viagreat",
-                    "type": "In velit aliqua ea enim. Duis irure enim Lorem occaecat cupidatat qui magna.",
-                    "description": true,
-                    "lat": 67.716456,
-                    "lng": 121.889881,
+                    "id": "5b2341ab518ea0412de82d9c",
+                    "name": "Tubalum",
+                    "description": "Laboris dolore aliquip occaecat cillum. Proident magna deserunt in quis deserunt exercitation mollit cillum occaecat.",
+                    "lat": 86.326396,
+                    "lng": 55.228297,
+                    "type": "Stationary Geometry Asset",
                     "points": [
                         {
-                            "lat": -58.339091,
-                            "lng": -18.02286
+                            "lat": -19.062243,
+                            "lng": -21.880712
                         },
                         {
-                            "lat": -36.553256,
-                            "lng": 95.25455
+                            "lat": 83.814053,
+                            "lng": 52.126678
                         },
                         {
-                            "lat": -72.773002,
-                            "lng": -96.208568
+                            "lat": -58.851507,
+                            "lng": -3.69184
                         }
                     ]
                 },
                 {
-                    "id": "5b233e9aa890626f9981486b",
-                    "name": "Freakin",
-                    "type": "Deserunt deserunt excepteur incididunt mollit irure nisi id deserunt deserunt irure est minim tempor. Occaecat qui culpa deserunt minim.",
-                    "description": true,
-                    "lat": -24.675076,
-                    "lng": 146.48717,
+                    "id": "5b2341ab49cfd979375067d3",
+                    "name": "Nurplex",
+                    "description": "Sunt reprehenderit incididunt aliquip eu ullamco eiusmod est qui minim. Esse consequat pariatur pariatur voluptate mollit fugiat cillum adipisicing officia sunt.",
+                    "lat": 23.729643,
+                    "lng": 170.802858,
+                    "type": "Stationary Geometry Asset",
                     "points": [
                         {
-                            "lat": 31.262709,
-                            "lng": 30.405384
+                            "lat": -2.602708,
+                            "lng": -18.132355
                         },
                         {
-                            "lat": 64.667073,
-                            "lng": -9.707656
+                            "lat": 36.669826,
+                            "lng": 151.452099
                         },
                         {
-                            "lat": 16.821763,
-                            "lng": 94.477256
+                            "lat": -83.95126,
+                            "lng": 61.393556
                         }
                     ]
                 },
                 {
-                    "id": "5b233e9a361a4ad33b1fb1e1",
-                    "name": "Retrotex",
-                    "type": "Veniam veniam Lorem officia proident laborum ipsum duis tempor duis consequat aute duis. Reprehenderit officia officia anim pariatur exercitation irure occaecat veniam.",
-                    "description": false,
-                    "lat": 89.369032,
-                    "lng": 100.296893,
+                    "id": "5b2341aba3cc091b2a848265",
+                    "name": "Phuel",
+                    "description": "Mollit deserunt enim do eu reprehenderit tempor consequat cillum ipsum anim cillum exercitation deserunt. Id deserunt esse sint aliquip pariatur aliqua consectetur anim Lorem magna qui pariatur reprehenderit ex.",
+                    "lat": -33.489993,
+                    "lng": -112.214451,
+                    "type": "Moving Asset",
                     "points": [
                         {
-                            "lat": 60.358371,
-                            "lng": 155.502844
+                            "lat": -60.494254,
+                            "lng": -164.28588
                         },
                         {
-                            "lat": -71.369785,
-                            "lng": 127.903898
+                            "lat": -36.34386,
+                            "lng": 74.095547
                         },
                         {
-                            "lat": -2.620792,
-                            "lng": 131.679888
+                            "lat": -54.014443,
+                            "lng": -67.241927
                         }
                     ]
                 },
                 {
-                    "id": "5b233e9aff5e9e9b1baaa074",
-                    "name": "Delphide",
-                    "type": "Cupidatat aute occaecat id dolore. Tempor incididunt Lorem enim irure tempor ipsum dolor adipisicing labore ad culpa qui.",
-                    "description": true,
-                    "lat": 34.417014,
-                    "lng": -170.093756,
+                    "id": "5b2341ab192736137d0cb902",
+                    "name": "Frolix",
+                    "description": "Duis consequat commodo consequat sit sit. Excepteur incididunt sunt deserunt qui ipsum sint reprehenderit et id magna proident ullamco incididunt.",
+                    "lat": 2.845804,
+                    "lng": 149.519595,
+                    "type": "Stationary Geometry Asset",
                     "points": [
                         {
-                            "lat": 34.815966,
-                            "lng": 119.015036
+                            "lat": -2.103327,
+                            "lng": 122.098066
                         },
                         {
-                            "lat": 38.568031,
-                            "lng": 135.018453
+                            "lat": -59.128418,
+                            "lng": -85.312194
                         },
                         {
-                            "lat": -13.050895,
-                            "lng": 137.073556
+                            "lat": -13.578348,
+                            "lng": 45.08366
                         }
                     ]
                 }
@@ -246,7 +246,7 @@ class NewAssetCard extends Component {
         return (
             <Card>
                 <CardBody>
-                    <CardTitle>{this.state.editingAsset.name === '' ? 'New Asset' : this.state.editingAsset.name}</CardTitle>
+                    <CardTitle>{this.state.editingAsset.name === '' ? 'New Asset' : thiSs.state.editingAsset.name}</CardTitle>
                     <Form>
                         <FormGroup>
                             <Label for="assetName">Name</Label>
