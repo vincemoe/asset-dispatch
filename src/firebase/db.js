@@ -1,17 +1,35 @@
-import { db } from './firebase';
+import { db_ref } from './firebase';
+
 
 // User API
 
 export const doCreateUser = (id, username, email) =>
-    db.ref(`users/${id}`).set({
+    db_ref.ref(`users/${id}`).set({
         username,
         email,
     });
 
 export const onceGetUsers = () =>
-    db.ref('users').once('value');
+    db_ref.ref('users').once('value');
 
 export const getUser = (key) =>
-    db.ref('users'/key).once('value');
+    db_ref.ref('users'/key).once('value');
+
+export const getAssets = () =>
+    db_ref.ref('assets').once('value');
+
+export const addAsset = (description, lat, lng, name, type, points, timestamp, addedby) =>
+    db_ref.ref().child('assets').push({
+        description,
+        lat,
+        lng,
+        name,
+        type,
+        points,
+        timestamp,
+        addedby,
+    });
+
+
 
 // Other Entity APIs ...
