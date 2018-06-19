@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import MapGL from 'react-map-gl';
-import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+import ReactMapboxGl from "react-mapbox-gl";
 import DrawControl from 'react-mapbox-gl-draw';
 
 // Don't forget to import the CSS
@@ -19,22 +19,30 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            mapStyle: 'mapbox://styles/vincemoe/cjhtcb45w1yff2so1hoihohkz',
-            viewport: {
+            mapSettings: {
+                style: 'mapbox://styles/vincemoe/cjhtcb45w1yff2so1hoihohkz',
                 width: 500,
                 height: 500,
-                latitude: 41.656403,
-                longitude: -70.562290,
                 zoom: [16.63],
                 center: [-70.562290, 41.656403],
             },
+            drawControls: false,
+            drawControlOptions: {
+                point: false,
+                line_string: false,
+                polygon: false,
+                trash: true,
+                combine_features: false,
+                uncombine_features: false
+            }
         };
         this._onClickMap = this._onClickMap.bind(this);
+        this._enablePoint = this._enablePoint.bind(this);
+        this._enablePolygon = this._enablePolygon.bind(this);
     }
 
     componentDidMount() {
         window.addEventListener('resize', this._resize);
-        this._resize();
     };
 
     componentWillUnmount() {
@@ -43,13 +51,19 @@ class Home extends Component {
 
     _resize = () => {
         this.setState({
-            viewport: {
-                ...this.state.viewport,
+            mapSettings: {
+                ...this.state.mapSettings,
                 width: window.innerWidth,
                 height: window.innerHeight - 50,
             }
         });
     };
+
+    _toggleDrawControls = () => this.setState({drawControls: !this.state.drawControls});
+
+    _enablePoint = () => this.setState({...this.state.drawControlOptions, drawControlOptions:{point: true}});
+
+    _enablePolygon = () => this.setState({...this.state.drawControlOptions, drawControlOptions:{polygon: true}});
 
     _onClickMap(evt) {
         console.log(evt.lngLat);
@@ -57,36 +71,24 @@ class Home extends Component {
 
     render() {
 
-        const {viewport, settings} = this.state;
-
         return (
             <div style={{overflow: 'hidden',}}>
-                {/*<MapGL*/}
-                    {/*{...viewport}*/}
-                    {/*{...settings}*/}
-                    {/*onViewportChange={(viewport) => this.setState({viewport})}*/}
-                    {/*mapStyle={this.state.mapStyle}*/}
-                    {/*mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}*/}
-                    {/*onClick={this._onClickMap}*/}
-                {/*><DrawControl*/}
-                    {/*ref={(drawControl) => {*/}
-                        {/*this.drawControl = drawControl;*/}
-                    {/*}}*/}
-                {/*/></MapGL>*/}
                 <Map
-                    style={this.state.mapStyle}
-                    center={this.state.viewport.center}
-                    zoom={this.state.viewport.zoom}
+                    {...this.state.mapSettings}
+
                     containerStyle={{
                         width: window.innerWidth,
                         height: window.innerHeight - 50
                     }}>
-                    <DrawControl
-                        ref={(drawControl) => {
-                            this.drawControl = drawControl;
-                        }}/>
+                    {this.state.drawControls ?
+                        <DrawControl
+                            ref={(drawControl) => {
+                                this.drawControl = drawControl;
+                            }}
+                            controls={this.state.drawControlOptions}
+                        /> : null}
                 </Map>
-                <Sidebar authUser={this.props.authUser}/>
+                <Sidebar enablePoint={this._enablePoint} enablePolygon={this._enablePolygon} drawControlToggle={this._toggleDrawControls} authUser={this.props.authUser}/>
             </div>
         );
     }

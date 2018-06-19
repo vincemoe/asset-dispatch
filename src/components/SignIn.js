@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withRouter, Route} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 import {auth} from '../firebase';
 import * as routes from '../constants/routes';
@@ -8,7 +8,7 @@ import {
     Button, Form, FormGroup, Label, Input,
 } from 'reactstrap';
 
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 
 const SignInPage = (({history}) =>
@@ -75,16 +75,16 @@ class SignInForm extends Component {
             password === '' ||
             email === '';
 
-        const actions = [
-            <Link to={routes.LANDING}>
-                <button
-                    label="Cancel"
-                    primary={true}
-                    onClick={this.handleClose}
-                />
-            </Link>,
-
-        ];
+        // const actions = [
+        //     <Link to={routes.LANDING}>
+        //         <button
+        //             label="Cancel"
+        //             primary={true}
+        //             onClick={this.handleClose}
+        //         />
+        //     </Link>,
+        //
+        // ];
 
         return (
             <div>

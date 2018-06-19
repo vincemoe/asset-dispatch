@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import {db, firebase} from '../firebase/';
+import {db} from '../firebase/';
 
-import {Card, CardBody, Form, FormGroup, CardTitle, Label, Input, Button, Col} from 'reactstrap';
+import {Card, CardBody, Form, FormGroup, CardTitle, Label, Input, Button} from 'reactstrap';
 
 import AuthUserContext from './AuthUserContext';
 
@@ -23,6 +23,7 @@ class NewAssetCard extends Component {
             assets: null,
             grouping: 'none',
         };
+        this.handleTypeSelection = this.handleTypeSelection.bind(this);
     };
 
     componentWillMount() {
@@ -31,6 +32,10 @@ class NewAssetCard extends Component {
         );
     };
 
+    handleTypeSelection(e) {
+        this.setState({editingAsset: {...this.state.editingAsset, type: e.target.value}});
+        if(e.target.value === "Stationary Point Asset"){this.props.enablePoint}else{this.props.enablePolygon};
+    };
 
     render() {
         return (
@@ -59,16 +64,11 @@ class NewAssetCard extends Component {
                         </FormGroup>
                         <FormGroup>
                             <Label for="type">Select Type</Label>
-                            <Input onChange={(e) => this.setState({
-                                editingAsset: {
-                                    ...this.state.editingAsset,
-                                    type: e.target.value
-                                }
-                            })} type="select" name="type" id="typeSelect">
+                            <Input onChange={this.handleTypeSelection} type="select" name="type" id="typeSelect">
                                 <option></option>
-                                <option>Stationary Point Asset</option>
-                                <option>Stationary Geometry Asset</option>
-                                <option>Moving Asset</option>
+                                <option key={'point'}>Stationary Point Asset</option>
+                                <option key={'polygon'}>Stationary Geometry Asset</option>
+                                <option key={'point2'}>Moving Asset</option>
                                 <option>Group</option>
                             </Input>
                         </FormGroup>

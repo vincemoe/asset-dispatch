@@ -32,9 +32,9 @@ class Sidebar extends Component {
 
     };
 
-
     toggleAdding() {
         this.setState({adding: !this.state.adding});
+        this.props.drawControlToggle();
     };
 
     componentDidMount() {
@@ -51,13 +51,6 @@ class Sidebar extends Component {
         this.setState({visible: true, addedSuccess: true, adding: false});
     }
 
-    // // Retrieve new posts as they are added to our database
-    // ref.on("child_added", function(snapshot, prevChildKey) {
-    //     var newPost = snapshot.val();
-    //     console.log("Author: " + newPost.author);
-    //     console.log("Title: " + newPost.title);
-    //     console.log("Previous Post ID: " + prevChildKey);
-    // });
 
     render() {
         return (
@@ -101,7 +94,7 @@ class Sidebar extends Component {
                         {this.state.adding ?
                             <Row style={{paddingBottom: '10px'}}>
                                 <Col>
-                                    <NewAssetCard handleSuccess={this.handleSuccess} assets={this.state.assets} authUser={this.props.authUser}/>
+                                    <NewAssetCard enablePoint={this.props.enablePoint} enablePolygon={this.props.enablePolygon} handleSuccess={this.handleSuccess} assets={this.state.assets} authUser={this.props.authUser}/>
                                 </Col>
                             </Row>
                             : null}

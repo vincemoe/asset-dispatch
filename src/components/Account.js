@@ -5,7 +5,7 @@ import {PasswordForgetForm} from './PasswordForget';
 import PasswordChangeForm from './PasswordChange';
 import withAuthorization from './withAuthorization';
 
-import {Card, CardBody, CardSubtitle, CardText, CardTitle, Button, Container, Row, Col} from 'reactstrap';
+import {Card, CardBody, CardSubtitle, CardText, CardTitle, Container, Row, Col} from 'reactstrap';
 
 const AccountPage = (() =>
     <AuthUserContext.Consumer>

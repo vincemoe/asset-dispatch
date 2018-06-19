@@ -1,19 +1,7 @@
 import React from 'react';
 import {Component} from 'react';
 import SignInPage from './SignIn';
-import {
-    Button, Form, FormGroup, Label, Input, Card, CardBody, Container, Row, Col, CardTitle, Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    Collapse,
-} from 'reactstrap';
-
-import * as routes from "../constants/routes";
-
-import {Link} from 'react-router-dom';
+import {Button, Card, CardBody, Container, Row, Col, CardTitle} from 'reactstrap';
 
 import {SignUpForm} from "./SignUp";
 
