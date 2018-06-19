@@ -34,7 +34,7 @@ class NewAssetCard extends Component {
 
     handleTypeSelection(e) {
         this.setState({editingAsset: {...this.state.editingAsset, type: e.target.value}});
-        if(e.target.value === "Stationary Point Asset"){this.props.enablePoint}else{this.props.enablePolygon};
+        if(e.target.value === "Stationary Point Asset"){this.props.enablePoint()}else{this.props.enablePolygon()};
     };
 
     render() {
