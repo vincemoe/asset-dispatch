@@ -14,6 +14,15 @@ const Map = ReactMapboxGl({
     accessToken: process.env.REACT_APP_MAP_TOKEN
 });
 
+const drawControlReset = {
+    point: false,
+    line_string: false,
+    polygon: false,
+    trash: true,
+    combine_features: false,
+    uncombine_features: false
+};
+
 class Home extends Component {
 
     constructor(props) {
@@ -36,9 +45,6 @@ class Home extends Component {
                 uncombine_features: false
             }
         };
-        this._onClickMap = this._onClickMap.bind(this);
-        this._enablePoint = this._enablePoint.bind(this);
-        this._enablePolygon = this._enablePolygon.bind(this);
     }
 
     componentDidMount() {
@@ -59,23 +65,42 @@ class Home extends Component {
         });
     };
 
-    _toggleDrawControls = () => this.setState({drawControls: !this.state.drawControls});
+    enablePoint() {
+        this.setState({
+            drawControls: true,
+            drawControlOptions: {...drawControlReset, point: true}
+        });
+        this.map.map.addControl(this.drawControl.draw);
+        console.log("Point");
+        console.log(this.state);
+    }
 
-    _enablePoint = () => this.setState({...this.state.drawControlOptions, drawControlOptions:{point: true}});
+    enablePoly() {
+        this.setState({
+            drawControls: true,
+            drawControlOptions: {...drawControlReset, polygon: true}
+        });
+        console.log(this.map);
+        console.log(this.drawControl);
+    }
 
-    _enablePolygon = () => this.setState({...this.state.drawControlOptions, drawControlOptions:{polygon: true}});
-
-    _onClickMap(evt) {
-        console.log(evt.lngLat);
+    _resetDraw() {
+        this.setState({
+            drawControls: false,
+            drawControlOptions: {drawControlReset}
+        });
+        console.log("Reset");
+        console.log(this.state);
     }
 
     render() {
-
         return (
             <div style={{overflow: 'hidden',}}>
                 <Map
                     {...this.state.mapSettings}
-
+                    ref={(map) => {
+                        this.map = map;
+                    }}
                     containerStyle={{
                         width: window.innerWidth,
                         height: window.innerHeight - 50
@@ -88,7 +113,9 @@ class Home extends Component {
                             controls={this.state.drawControlOptions}
                         /> : null}
                 </Map>
-                <Sidebar enablePoint={this._enablePoint} enablePolygon={this._enablePolygon} drawControlToggle={this._toggleDrawControls} authUser={this.props.authUser}/>
+                <button onClick={this.enablePoly.bind(this)}>Test</button>
+                <Sidebar enablePoint={this.enablePoint.bind(this)} enablePoly={this.enablePoly.bind(this)}
+                         authUser={this.props.authUser} _resetDraw={this._resetDraw.bind(this)}/>
             </div>
         );
     }

@@ -34,7 +34,7 @@ class Sidebar extends Component {
 
     toggleAdding() {
         this.setState({adding: !this.state.adding});
-        this.props.drawControlToggle();
+        this.props.enablePoly();
     };
 
     componentDidMount() {
@@ -44,7 +44,7 @@ class Sidebar extends Component {
     };
 
     onDismiss() {
-        this.setState({ visible: false });
+        this.setState({visible: false});
     }
 
     handleSuccess() {
@@ -94,7 +94,10 @@ class Sidebar extends Component {
                         {this.state.adding ?
                             <Row style={{paddingBottom: '10px'}}>
                                 <Col>
-                                    <NewAssetCard enablePoint={this.props.enablePoint} enablePolygon={this.props.enablePolygon} handleSuccess={this.handleSuccess} assets={this.state.assets} authUser={this.props.authUser}/>
+                                    <NewAssetCard enablePoint={this.props.enablePoint}
+                                                  enablePoly={this.props.enablePoly} handleSuccess={this.handleSuccess}
+                                                  assets={this.state.assets} authUser={this.props.authUser}
+                                                  _resetDraw={this.props._resetDraw}/>
                                 </Col>
                             </Row>
                             : null}
@@ -108,7 +111,8 @@ class Sidebar extends Component {
                                             <CardSubtitle>{this.state.assets[asset].type}</CardSubtitle>
                                             <CardText>{this.state.assets[asset].description}</CardText>
                                         </CardBody>
-                                        <CardFooter>ID: {asset}<br/>{this.state.assets[asset].lat}, {this.state.assets[asset].lng}</CardFooter>
+                                        <CardFooter>ID: {asset}<br/>{this.state.assets[asset].lat}, {this.state.assets[asset].lng}
+                                        </CardFooter>
                                     </Card>
                                 </Col>
                             </Row>
