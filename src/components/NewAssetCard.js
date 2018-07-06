@@ -34,15 +34,15 @@ class NewAssetCard extends Component {
 
     handleTypeSelection(e) {
         this.setState({editingAsset: {...this.state.editingAsset, type: e.target.value}});
-        if (e.target.value === "Stationary Point Asset") {
-            this.props._resetDraw();
-            this.props.enablePoint();
-        } else if (e.target.value === "Stationary Geometry Asset") {
-            this.props._resetDraw();
-            this.props.enablePoly();
-        } else {
-            this.props._resetDraw()
-        }
+        // if (e.target.value === "Stationary Point Asset") {
+        //     this.props._resetDraw();
+        //     this.props.enablePoint();
+        // } else if (e.target.value === "Stationary Geometry Asset") {
+        //     this.props._resetDraw();
+        //     this.props.enablePoly();
+        // } else {
+        //     this.props._resetDraw()
+        // }
     };
 
     render() {
@@ -72,7 +72,7 @@ class NewAssetCard extends Component {
                         </FormGroup>
                         <FormGroup>
                             <Label for="type">Select Type</Label>
-                            <Input type="select" name="type" id="typeSelect">
+                            <Input onChange={this.handleTypeSelection} type="select" name="type" id="typeSelect">
                                 <option> </option>
                                 <option key={'point'}>Stationary Point Asset</option>
                                 <option key={'polygon'}>Stationary Geometry Asset</option>
