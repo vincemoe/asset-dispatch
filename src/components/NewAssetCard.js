@@ -83,8 +83,8 @@ class NewAssetCard extends Component {
                         <FormGroup>
                             <Label for={"group"}>Select Assets to Group</Label>
                             <Input type="select" name="group" id="selectGroup" multiple>
-                                {Object.keys(this.props.assets).map(p => <option
-                                    key={this.props.assets[p].id}>{this.props.assets[p].name}</option>)}
+                                {this.props.assets? Object.keys(this.props.assets).map(p => <option
+                                    key={this.props.assets[p].id}>{this.props.assets[p].name}</option>) : "No Assets Yet"}
                             </Input>
                         </FormGroup>
                         <AuthUserContext.Consumer>

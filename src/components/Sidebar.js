@@ -96,13 +96,13 @@ class Sidebar extends Component {
                                 <Col>
                                     <NewAssetCard enablePoint={this.props.enablePoint}
                                                   enablePoly={this.props.enablePoly} handleSuccess={this.handleSuccess}
-                                                  assets={this.state.assets} authUser={this.props.authUser}
+                                                  assets={this.state.assets ? this.state.assets : null} authUser={this.props.authUser}
                                                   _resetDraw={this.props._resetDraw}/>
                                 </Col>
                             </Row>
                             : null}
 
-                        {Object.keys(this.state.assets).map((asset) =>
+                        {this.state.assets ? Object.keys(this.state.assets).map((asset) =>
                             <Row key={this.state.assets[asset].id} style={{paddingBottom: '10px'}}>
                                 <Col>
                                     <Card>
@@ -117,7 +117,7 @@ class Sidebar extends Component {
                                 </Col>
                             </Row>
                         )
-                        }
+                         : null}
                     </CardBody>
                 </Card>
             </div>
